@@ -1,0 +1,24 @@
+- name: Setup QuizBuilder environment
+  hosts: servers
+  become: true
+  tasks:
+
+    - name: Update APT packages
+      apt:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
